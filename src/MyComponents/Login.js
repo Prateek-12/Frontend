@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import UserService from "../Services/UserService"
 import '../App.css'
-export default class Login extends Component {
+
+export default class Login extends Component {  
   state = {
     username: "",
     password: "",
@@ -27,8 +28,8 @@ export default class Login extends Component {
       console.log("res", res);
       if (res.data) {
         localStorage.removeItem("user");
-        localStorage.setItem("role", JSON.stringify(res.data.id));
-        // window.location.href = "/search";
+        localStorage.setItem("role", res.data.id);
+        window.location.href = "/search";
 
       }
       // if (res.data.role === null) {
