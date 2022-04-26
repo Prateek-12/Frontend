@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SubmitForm from "./SubmitForm";
 import { useParams } from "react-router-dom";
 import Logout from "./Logout";
@@ -10,13 +10,15 @@ const BookingPage = () => {
   const [passengers, setPassengers] = useState([]);
   const [addingPassenger, setAddingPassenger] = useState(false);
   const { flightNumber } = useParams();
+  // flightNumber
   const history = useHistory();
   const proceedNext = async () => {
-    const userid = localStorage.getItem("userid");
+    const userid = localStorage.getItem("role");
+    console.log("flight number",passengers)
     const bookingData = {
       passengerList: passengers,
       userid,
-      flightNumber,
+      flightNumber:passengers[0].flightNumber,
     };
     const resp = await Service.createBooking(bookingData);
     const bookingid = resp.data.bookingid;
@@ -54,6 +56,7 @@ const BookingPage = () => {
                   </div>
                 </div>
                 <div className="card-body">
+                  <div><span>Flight No: </span><span>{passenger.flightNumber}</span></div>
                   <div><span>Name: </span><span>{passenger.firstName} {passenger.lastName}</span></div>
                   <div><span>Gender: </span><span>{passenger.gender}</span></div>
                   <div><span>Age: </span><span>{passenger.age}</span></div>

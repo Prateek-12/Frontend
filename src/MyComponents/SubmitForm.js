@@ -1,23 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import Service from "../Services/Service";
 
 const SubmitForm = (props) => {
+  const [flightNumber,setFlightNo] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [age, setAge] = useState("5");
+  const [age, setAge] = useState("13");
   const [gender, setGender] = useState("");
+  const [flights,getFlights] = useState([]);
   const handleSubmit = (event) => {
     event.preventDefault();
-    const userObj = { firstName, lastName, age, gender }
+    console.log(flightNumber);
+    const userObj = { flightNumber,firstName, lastName, age, gender }
     props.setPassengers([...props.passengers, userObj])
     props.setAddingPassenger(false)
   };
+  useEffect(()=>{
+    Service.getFlights().then((res) => {
+       getFlights(res.data);
+   });    
+},[]);
   return (
     <div className="w-100">
       <form className="text-primary" onSubmit={handleSubmit}>
         <div className="card flight-table mt-3 p-3" style={{ color: "black" }}>
           <div className="text-center">
             <div className="row mb-2">
+              <div className="col-sm-6">
+                <div>FLight Number</div>
+                <select onChange={e => setFlightNo(e.target.value)}>
+                {flights.length > 0 && flights.map((item) =>
+                    <option value={item.flightNumber}>{item.flightNumber}</option>
+                 )}
+               </select>
+              </div>
+
               <div className="col-sm-6">
                 <div>First Name</div>
                 <input

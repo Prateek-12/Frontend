@@ -47,13 +47,13 @@ export default function Header(props) {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="/">
+                  <Link className="nav-link " aria-current="page" to="/">
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link active"
+                    className="nav-link "
                     aria-current="page"
                     to="/search"
                   >
@@ -62,7 +62,7 @@ export default function Header(props) {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link active"
+                    className="nav-link active "
                     aria-current="page"
                     to="/flights"
                   >
@@ -71,11 +71,16 @@ export default function Header(props) {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link active"
+                    className="nav-link "
                     aria-current="page"
                     to="/booking"
                   >
                     Booking
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/checkIn">
+                    Check In
                   </Link>
                 </li>
                 <li className="nav-item">

@@ -5,7 +5,7 @@ export default function About() {
     <div>
        <b>About Us.</b> 
         <p>
-          Welcome to  prateek  Flight Booking System.
+          Welcome to  prateek and saicharan's  Flight Booking System.
         </p>
     </div>
   )

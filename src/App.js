@@ -12,6 +12,8 @@ import SubmitForm from './MyComponents/SubmitForm'
 import About from "./MyComponents/About"
 import Login from "./MyComponents/Login"
 import Registration from "./MyComponents/Registration"
+import CheckIn from './MyComponents/CheckIn';
+import checkInDetails from './MyComponents/CheckInDetails';
 
 import {
   BrowserRouter as Router,
@@ -39,7 +41,8 @@ function App() {
           <Route path="/search" component={Search} />
           <Route path="/update-flight/:flightNumber" component={UpdateFlightComponent} />
           <Route path="/booking/:flightNumber" component={BookingPage} />
-          
+          <Route path="/checkIn" component={CheckIn} />
+          <Route path="/checkInDetails/:bookingId" component={checkInDetails} />
           <Route exact path="/login">
             <Login />
           </Route>
