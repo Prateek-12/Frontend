@@ -123,3 +123,9 @@ button{
   font-size:17px !important;
   font-family:"Gill Sans",sans-serif !important;
 }
+.footerBottom{
+  position:absolute;
+  bottom:0;
+  width:100%;
+
+}

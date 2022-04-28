@@ -14,7 +14,7 @@ import Login from "./MyComponents/Login"
 import Registration from "./MyComponents/Registration"
 import CheckIn from './MyComponents/CheckIn';
 import checkInDetails from './MyComponents/CheckInDetails';
-
+import checkInConfirmation from './MyComponents/checkInConfirmation';
 import {
   BrowserRouter as Router,
   Switch,
@@ -43,6 +43,7 @@ function App() {
           <Route path="/booking/:flightNumber" component={BookingPage} />
           <Route path="/checkIn" component={CheckIn} />
           <Route path="/checkInDetails/:bookingId" component={checkInDetails} />
+          <Route path="/checkInConfirmation" component={checkInConfirmation} />
           <Route exact path="/login">
             <Login />
           </Route>
@@ -56,7 +57,7 @@ function App() {
           </Route>
 
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </>
   );
