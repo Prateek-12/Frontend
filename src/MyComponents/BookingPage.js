@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Logout from "./Logout";
 import Service from "../Services/Service";
 import { useHistory } from "react-router-dom";
-import { withRouter } from "react-router-dom";
+import { withRouter,Redirect } from "react-router-dom";
 
 const BookingPage = () => {
   const [passengers, setPassengers] = useState([]);
@@ -24,7 +24,9 @@ const BookingPage = () => {
     const bookingid = resp.data.bookingid;
     const fareData = { bookingid };
     const fareResp = await Service.createFare(fareData);
-    history.push(`/ticket/${fareResp.data.farenum}`)
+    setTimeout(()=>{
+      Service.paymentRedirect();
+    },2000)
   };
   const deletePassenger = (index) => {
     let allPassengers = [...passengers];

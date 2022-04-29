@@ -6,6 +6,8 @@ const BOOKING_API_BASE_URL = "http://localhost:9002/fbs/booking";
 
 const CHECKIN_API_BASE_URL = "http://localhost:9003/fbs/checkin";
 
+const Payment = "http://localhost:9004/"
+
 let Service = {
     //Flights API's
     getFlights : () => {return axios.get(FLIGHT_API_BASE_URL+"/flights");},
@@ -30,6 +32,8 @@ let Service = {
     getBookingById : (userId) => { return axios.get(BOOKING_API_BASE_URL+"/getBookingsByUserId/"+userId)},
     getBookingDetailsById :(bookingId) => {return axios.get(BOOKING_API_BASE_URL+"/getBooking/"+bookingId)},
     // http://localhost:9002/fbs/booking/getBooking/7 create
+
+    paymentRedirect : () => { return axios.get(Payment)}
 
 }
 
