@@ -49,7 +49,7 @@ function FlightSearch() {
         <div className="row mt-5 pt-5">
           <div className="col-lg-4 mb-5 grid-margin">
             <div className="card h-100 flight-table" style={{color: "black"}}>
-              <h4 className="card-header">Search Flights</h4>
+              <h1 className="card-header">Search</h1>
               <div className="card-body">
                 <form>
                   <br></br>
