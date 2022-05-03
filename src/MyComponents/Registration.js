@@ -104,7 +104,7 @@ export class Registration extends Component {
                 </div>
                 <section
                     className="vh-100 bg-image"
-                    style={{ backgroundColor: "#C3CCC6" }}
+                    style={{ backgroundImage: 'url("reg.jpg")', backgroundSize: '33.33%'}}
                 >
                     <div className="mask d-flex align-items-center h-100 gradient-custom-3">
                         <div className="container h-100">
