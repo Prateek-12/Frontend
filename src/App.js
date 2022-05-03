@@ -36,7 +36,7 @@ function App() {
           <Route path="/bookings" component={ListBookingsComponent} />
           <Route path="/booking" component={BookingPage} />
           <Route path="/flights" component={ListFlightsComponent} />
-          <Route path="/add-flight" component={CreateFlightComponent} />           
+          <Route path="/add-flight" component={CreateFlightComponent} />       
           {/* <Route path="/search" component={SearchFlights} /> */}
           <Route path="/search" component={Search} />
           <Route path="/update-flight/:flightNumber" component={UpdateFlightComponent} />
@@ -57,7 +57,7 @@ function App() {
           </Route>
 
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </>
   );

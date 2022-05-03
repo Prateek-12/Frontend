@@ -10,7 +10,7 @@ export default class Login extends Component {
   };
   onUsernameChange = (event) => {
     this.setState({
-      username : event.target.value,
+      username : event.target.value,                     //evwnt ko target krke value put krdo
     });
   };
   onPasswordChange = (event) => {
@@ -27,9 +27,9 @@ export default class Login extends Component {
     UserService.loginUser(loginData).then((res) => {
       console.log("res", res);
       if (res.data) {
-        localStorage.removeItem("user");
-        localStorage.setItem("role", res.data.id);
-        window.location.href = "/search";
+       // localStorage.removeItem("user");
+        localStorage.setItem("role", res.data.id);        //jo bhi response.data.id ke andr aari hh use role me store krde
+        window.location.href = "/search";                 //search pe redirect kr va rha hh
 
       }
       // if (res.data.role === null) {
@@ -73,7 +73,8 @@ export default class Login extends Component {
                         id="typeEmailX-2"
                         className="form-control form-control-lg"
                         name="name"
-                        value={this.state.username} onChange={this.onUsernameChange}
+                        value={this.state.username} //ye input field ki value hh
+                        onChange={this.onUsernameChange}
                       />
                     </div>
                     <div className="form-outline mb-4">

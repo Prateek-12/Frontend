@@ -8,7 +8,7 @@ export class Registration extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
+        this.state = {  //what is state? State is a pre defined object contianing all the property of the component.
             username: '',
             email: '',
             password: '',
@@ -18,7 +18,10 @@ export class Registration extends Component {
             msg: ''
         }
 
-        this.changeUserNameHandler = this.changeUserNameHandler.bind(this);
+        // we ar doing binding bcs
+        // The bind() is an inbuilt method in React that is used to pass the data as an argument to the function of a class based component.
+
+        this.changeUserNameHandler = this.changeUserNameHandler.bind(this); // to take the input from user we are binding this 
         this.changeEmailHandler = this.changeEmailHandler.bind(this);
         this.changePasswordHandler = this.changePasswordHandler.bind(this);
         this.saveUserData = this.saveUserData.bind(this);
@@ -26,7 +29,7 @@ export class Registration extends Component {
 
     //validation
     valid() {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i; 
         if (this.state.username.length < 4 && this.state.email.length < 6 && this.state.password.length < 6) {
             this.setState({
                 usernameError: "*Required",
@@ -61,13 +64,13 @@ export class Registration extends Component {
     }
 
     //for save
-    saveUserData = (e) => {
-        e.preventDefault();
+    saveUserData = (e) => {     // fat arrow function
+        e.preventDefault();     // ye page reload se rokta hh
         if (this.valid()) {
             let user = {
-                username: this.state.username, email: this.state.email, password: this.state.password
+                username: this.state.username, email: this.state.email, password: this.state.password //current state ka username hh ue use name mme dalra hh
             };
-            console.log('user => ' + JSON.stringify(user));
+            console.log('user => ' + JSON.stringify(user));  //object ko json me convert krne ke lie
 
             UserService.createUsers(user).then(res => {
                 this.setState({
@@ -82,7 +85,7 @@ export class Registration extends Component {
     }
 
     changeEmailHandler = (event) => {
-        this.setState({ email: event.target.value });
+        this.setState({ email: event.target.value });         //is event ko target krke value ko push krdo 
     }
 
     changePasswordHandler = (event) => {
@@ -122,8 +125,9 @@ export class Registration extends Component {
                                                     <label className="form-label passwordLabel">Email : </label>
                                                     <input type="email" className="form-control form-control-lg"
                                                      name="email" required placeholder="Enter Your Email" 
-                                                     value={this.state.email} 
-                                                     onChange={this.changeEmailHandler} />
+                                                     value={this.state.email}  
+                                                     onChange={this.changeEmailHandler} 
+                                                     />  
                                                     <p style={{ color: "red" }}>{this.state.emailError}</p>
 
                                                 </div>
