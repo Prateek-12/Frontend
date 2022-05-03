@@ -20,7 +20,7 @@ function Search() {
                 
             })
             .catch((error) => console.error(`Error :  ${error}`));
-    }, []);
+    }, []);     // [ ye ni lgaenge to infine time chlega]
 
     const searchFlights = async (event) => {
         event.preventDefault();

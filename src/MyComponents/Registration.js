@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import UserService from "../Services/UserService";
 // import '../App.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class Registration extends Component {
     constructor(props) {
@@ -76,6 +78,7 @@ export class Registration extends Component {
                 this.setState({
                     msg: "Registration Successful"
                 })
+                toast.success("Registered Successfully",{autoClose: 2000});
             })
         }
     }
@@ -154,6 +157,7 @@ export class Registration extends Component {
                         </div>
                     </div >
                 </section >
+                <ToastContainer />
             </div >
 
         )

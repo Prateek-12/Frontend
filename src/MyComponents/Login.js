@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import UserService from "../Services/UserService"
 import '../App.css'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default class Login extends Component {  
   state = {
     username: "",
@@ -29,7 +30,11 @@ export default class Login extends Component {
       if (res.data) {
        // localStorage.removeItem("user");
         localStorage.setItem("role", res.data.id);        //jo bhi response.data.id ke andr aari hh use role me store krde
-        window.location.href = "/search";                 //search pe redirect kr va rha hh
+        toast.success("Logged In Successfuly!",{autoClose: 2000});
+        setTimeout(()=>{
+          window.location.href = "/search";
+
+        },2000)          //search pe redirect kr va rha hh
 
       }
       // if (res.data.role === null) {
@@ -122,6 +127,8 @@ export default class Login extends Component {
             </div>
           </div>
         </section>
+        <ToastContainer />
+
       </div>
     );
   }

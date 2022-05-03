@@ -5,13 +5,17 @@ import Logout from "./Logout";
 import Service from "../Services/Service";
 import { useHistory } from "react-router-dom";
 import { withRouter,Redirect } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const BookingPage = () => {
   const [passengers, setPassengers] = useState([]);
   const [addingPassenger, setAddingPassenger] = useState(false);
   const { flightNumber } = useParams();
   // flightNumber
+
   const history = useHistory();
+  
   const proceedNext = async () => {
     const userid = localStorage.getItem("role");
     console.log("flight number",passengers)
@@ -22,16 +26,20 @@ const BookingPage = () => {
     };
     const resp = await Service.createBooking(bookingData);
     const bookingid = resp.data.bookingid;
-    const fareData = { bookingid };
-    const fareResp = await Service.createFare(fareData);
+    // const fareData = { bookingid };
+    // const fareResp = await Service.createFare(fareData);
     setTimeout(()=>{
-      Service.paymentRedirect();
+      console.log("i'm here")
+      // Service.paymentRedirect();
+      window.location.href = "http://localhost:9004/";                 //search pe redirect kr va rha hh
+
     },2000)
   };
   const deletePassenger = (index) => {
     let allPassengers = [...passengers];
     allPassengers = allPassengers.filter((pas, ind) => ind !== index);
     setPassengers(allPassengers);
+    toast.warn("Deleted Succesfully");
   };
   return (
     <div>
@@ -81,9 +89,7 @@ const BookingPage = () => {
       )}
       {passengers.length > 0 && (
         <div className="text-center mt-2">
-          <button className="btn btn-success" onClick={() => proceedNext()}>
-            <a className="paytm" href='http://localhost:9004/'>Next</a>
-          </button>
+          <button className="btn btn-success" onClick={() => proceedNext()}>Next</button>
         </div>
       )}
     </div>
