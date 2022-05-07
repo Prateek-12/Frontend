@@ -28,7 +28,7 @@ class ListBookingsComponent extends Component {
     });
   }
 
-  componentDidMount() {
+  componentDidMount() {        
     Service.getBookings().then((res) => {
       this.setState({ bookings: res.data });
     });

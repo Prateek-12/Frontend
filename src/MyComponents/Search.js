@@ -10,34 +10,34 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function Search() {
-    const history = useHistory();
+    const history = useHistory();                                  
     const [flights, setFlights] = useState([]);
     const [airportList, setAirportList] = useState([]);
     const [takeoff, setFlightTakeOffStation] = useState("");
     const [landing, setFlightLandingStation] = useState("");
     const [departureDate,setDepartureDate] = useState("");
 
-    useEffect(() => {
+    useEffect(() => {                          // after that what you want to do
         Service.getFlights()
             .then((response) => {
                 setAirportList(response.data);
-                setAirportList(response.data);
+                
             })
             .catch((error) => console.error(`Error :  ${error}`));
-    }, []);
+    }, []);     // [ ye ni lgaenge to infine time chlega]
 
     const searchFlights = async (event) => {
         event.preventDefault();
-        let search = {
+        let search = {           
             takeoff,
             landing,
             departureDate,
         };
-        const flightResp = await Service.getByTakeoffAndLandingAndDepartureDate(
+        const flightResp = await Service.getByTakeoffAndLandingAndDepartureDate(  // takeoff or landing ka object create krega or ye api call krega get krlega jo bhi iske beech me flights hogi
             search
         );
         console.log(flightResp);
-        setFlights(flightResp.data);
+        setFlights(flightResp.data);// jo bhi ai se value aai use set krdia
     };
 
     const selectFlight = (id) => {
@@ -73,18 +73,18 @@ function Search() {
                             <select
                                 className="form-control"
                                 name="departureAirport"
-                                value={takeoff || ""}
+                                value={takeoff || ""}     //null aaegi to "" ye aa jaega
                                 onChange={(e) => {
                                     setFlightTakeOffStation(e.target.value);
                                 }}
                             >
-                                <option value="">-</option>
-                                {airportList.map((flight) => (
+                                <option value="">-</option>    
+                                {airportList.map((flight) => (          // backend se jo data aaya {aaray of object} use loop krke print krre hh options ki form me   
                                     <option
                                         key={flight.flightNumber}           //unique
                                         value={flight.takeoff}
                                     >
-                                        {flight.takeoff}
+                                        {flight.takeoff}           {/* option me jo value show hogi */}
                                     </option>
                                 ))}
                             </select>
@@ -192,7 +192,7 @@ function Search() {
                                 </div>
                             </div>
                         </div>
-                    ) : null}
+                    ) : null}   
                 </div>
             </div>
             <ToastContainer />

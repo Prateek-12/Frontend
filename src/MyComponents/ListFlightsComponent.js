@@ -36,7 +36,7 @@ class ListFlightsComponent extends Component {
     this.props.history.push(`/update-flight/${flightNumber}`);
   }
 
- componentDidMount() {
+ componentDidMount() {         // sbse phle ye fun chlega
     Service.getFlights().then((res) => {
       this.setState({ flights: res.data });
     });

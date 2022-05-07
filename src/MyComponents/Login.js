@@ -4,7 +4,6 @@ import UserService from "../Services/UserService"
 import '../App.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 export default class Login extends Component {  
   state = {
     username: "",
@@ -12,7 +11,7 @@ export default class Login extends Component {
   };
   onUsernameChange = (event) => {
     this.setState({
-      username : event.target.value,
+      username : event.target.value,                     //evwnt ko target krke value put krdo
     });
   };
   onPasswordChange = (event) => {
@@ -50,6 +49,7 @@ export default class Login extends Component {
         </div>
         <section className="vh-100" style={{ backgroundImage: 'url("reg.jpg")' , backgroundRepeat:'no-repeat', backgroundSize: 'cover',  backgroundPosition: 'center' }}>
           <div className="container py-5 h-100">
+            {/* <img src='air.jpg' alt='madam' /> */}
             <div className="row d-flex justify-content-center align-items-center h-100">
               <div className="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div
@@ -68,7 +68,8 @@ export default class Login extends Component {
                         id="typeEmailX-2"
                         className="form-control form-control-lg"
                         name="name"
-                        value={this.state.username} onChange={this.onUsernameChange}
+                        value={this.state.username} //ye input field ki value hh
+                        onChange={this.onUsernameChange}
                       />
                     </div>
                     <div className="form-outline mb-4">

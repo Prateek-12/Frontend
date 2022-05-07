@@ -79,7 +79,6 @@ export class Registration extends Component {
                     msg: "Registration Successful"
                 })
                 toast.success("Registered Successfully",{autoClose: 2000});
-
             })
         }
     }
@@ -158,6 +157,7 @@ export class Registration extends Component {
                         </div>
                     </div >
                 </section >
+                <ToastContainer />
             </div >
 
         )

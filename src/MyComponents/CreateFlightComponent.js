@@ -125,8 +125,8 @@ class CreateFlightComponent extends Component {
     };
 
     Service.createFlight(flight).then((res) => {
-      this.props.history.push("/flights");
-    });
+      this.props.history.push("/flights");      //history.push redirect krne ke kaam aata hh
+    });                              
 
     console.log("flight => " + JSON.stringify(flight));
 
