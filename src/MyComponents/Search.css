@@ -1,3 +1,14 @@
+/* .search{
+
+    background-image: url("https://unsplash.com/photos/qUfecpBw5b8");
+    position:fixed;
+    min-width: 100%;
+    min-height:100%;
+    background-size:cover;
+    background-position: center;
+
+} */
+
 .search--tabs button {
     padding: 10px 0;
     width: 120px;
@@ -10,10 +21,12 @@
     border-top-right-radius: 5px;
 }
 .search--tabs button.active {
-    background: #fff;
-    color: #333;
+    background: rgb(130, 26, 26);
+    color: rgb(250, 244, 244);
 }
 .search--form {
+    margin: 20px 0px;
+    border-radius: 20px;
     padding: 20px;
     background: #fff;
 }
@@ -29,6 +42,7 @@
     display: block;
 }
 .search--form .btn {
+    margin: 10px 2px;
     padding: 10px;
     font-size: 16px;
     border: none;

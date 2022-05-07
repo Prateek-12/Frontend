@@ -17,7 +17,7 @@ function CheckInConfirmation() {
     });
     }, []);
   return (
-    <div>
+    <div  style={{ backgroundImage: 'url("reg.jpg")' , backgroundRepeat:'no-repeat', backgroundSize: 'cover',  backgroundPosition: 'center' }} >
         {bookings.length > 0 && (
         <div className="row">
             {bookings.map((passenger, index) => (

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import UserService from "../Services/UserService"
 import '../App.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default class Login extends Component {  
   state = {
@@ -27,33 +29,26 @@ export default class Login extends Component {
     UserService.loginUser(loginData).then((res) => {
       console.log("res", res);
       if (res.data) {
-        localStorage.removeItem("user");
-        localStorage.setItem("role", res.data.id);
-        window.location.href = "/search";
+       // localStorage.removeItem("user");
+        localStorage.setItem("role", res.data.id);        //jo bhi response.data.id ke andr aari hh use role me store krde
+        toast.success("Logged In Successfuly!",{autoClose: 2000});
+        setTimeout(()=>{
+          window.location.href = "/booking";  //booking pe redirect kr va rha hh
+
+        },2000)         
 
       }
-      // if (res.data.role === null) {
-      //   alert("Invalid login credentials");
-      // }
-
-      // if (res.data.role === "admin") {
-      //   alert("Login success!");
-      //   window.location.href = "/search";
-      // }
-      // if (res.data.role === "user") {
-      //   alert("Login success!");
-      //   window.location.href = "/search";
-      // }
 
     });
 
   };
   render() {
     return (
+      <>
       <div>
         <div className="homecontainer">
         </div>
-        <section className="vh-100" style={{ backgroundColor: "#C3CCC6" }}>
+        <section className="vh-100" style={{ backgroundImage: 'url("reg.jpg")' , backgroundRepeat:'no-repeat', backgroundSize: 'cover',  backgroundPosition: 'center' }}>
           <div className="container py-5 h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
               <div className="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -121,7 +116,12 @@ export default class Login extends Component {
             </div>
           </div>
         </section>
+        <ToastContainer />
+
       </div>
+     
+
+      </>
     );
   }
 }

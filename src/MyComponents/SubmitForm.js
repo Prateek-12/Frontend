@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import Service from "../Services/Service";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const SubmitForm = (props) => {
   const [flightNumber,setFlightNo] = useState("");
@@ -9,12 +11,15 @@ const SubmitForm = (props) => {
   const [age, setAge] = useState("13");
   const [gender, setGender] = useState("");
   const [flights,getFlights] = useState([]);
+
+  
   const handleSubmit = (event) => {
     event.preventDefault();
+    toast.success("Passenger Added");
     console.log(flightNumber);
     const userObj = { flightNumber,firstName, lastName, age, gender }
-    props.setPassengers([...props.passengers, userObj])
-    props.setAddingPassenger(false)
+    props.setPassengers([...props.passengers, userObj])      //using spread operator added value of passengers to state setpassengers
+    props.setAddingPassenger(false)                          // ye tab call hoga jab ham ksi pasenger ko cancel krenge
   };
   useEffect(()=>{
     Service.getFlights().then((res) => {
@@ -112,6 +117,7 @@ const SubmitForm = (props) => {
       <div className="text-center mt-2">
         <button className="btn btn-danger" onClick={() => props.setAddingPassenger(false)}>cancel</button>
       </div>
+      <ToastContainer/>
     </div>
   );
 };

@@ -41,7 +41,7 @@ class ListBookingsComponent extends Component {
   render() {
     return (
       <div style={{ color: "white" }}>
-        <div className="mx-n3">
+        <div className="mx-n3" >
         </div>
         <div className="d-flex p-2 mx-n3 flight-table table-margin">
           <div className="mx-auto text-center">

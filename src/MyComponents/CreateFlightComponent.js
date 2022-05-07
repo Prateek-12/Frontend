@@ -237,7 +237,7 @@ class CreateFlightComponent extends Component {
                       Departure Date:{" "}
                     </label>
                     <input
-                      type="date"
+                      type="datetime-local"
                       name="departureDate"
                       className="form-control"
                       value={this.state.departureDate}
@@ -250,32 +250,36 @@ class CreateFlightComponent extends Component {
                     </label>
                     <input
                       name="arrivalDate"
-                      type="date"
+                      type="datetime-local"
                       className="form-control"
                       value={this.state.arrivalDate}
                       onChange={this.changeArrivalDateHandler}
                     />
                   </div>
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <label style={{ marginRight: "49px" }}>
                       Departure Time:{" "}
                     </label>
-                    <TimePicker
+                    <input
                       name="departureTime"
+                      type="time"
+                      className="form-control"
                       value={this.state.departureTime}
                       onChange={this.changeDepartureTimeHandler}
                     />
-                  </div>
-                  <div className="form-group">
+                  </div> */}
+                  {/* <div className="form-group">
                     <label style={{ marginRight: "76px" }}>
                       Arrival Time:{" "}
                     </label>
-                    <TimePicker
+                    <input
                       name="arrivalTime"
+                      type="time"
+                      className="form-control"
                       value={this.state.arrivalTime}
                       onChange={this.changeArrivalTimeHandler}
                     />
-                  </div>
+                  </div> */}
                   <div className="form-group">
                     <label>Flight Fare: </label>
                     <input

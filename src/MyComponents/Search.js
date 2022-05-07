@@ -5,6 +5,9 @@ import { Button, Table } from "react-bootstrap";
 import Service from "../Services/Service";
 import Logout from "./Logout";
 import { withRouter } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Search() {
     const history = useHistory();
@@ -12,6 +15,7 @@ function Search() {
     const [airportList, setAirportList] = useState([]);
     const [takeoff, setFlightTakeOffStation] = useState("");
     const [landing, setFlightLandingStation] = useState("");
+    const [departureDate,setDepartureDate] = useState("");
 
     useEffect(() => {
         Service.getFlights()
@@ -27,6 +31,7 @@ function Search() {
         let search = {
             takeoff,
             landing,
+            departureDate,
         };
         const flightResp = await Service.getByTakeoffAndLandingAndDepartureDate(
             search
@@ -36,13 +41,28 @@ function Search() {
     };
 
     const selectFlight = (id) => {
-        history.push(`/booking/${id}`);
-    };
+        toast.success("Login to book your flight!",{autoClose: 3000});
+         setTimeout(()=>{
+            history.push(`/login`);
+
+         },2500)  
+
+
+
+          // history.push(`/login`);
+        };
+
+    // const selectFlight = (id) => {
+    //     history.push(`/booking/${id}`);
+    // };
 
     return (
-        <div>
+
+
+        
+        <div style={{ backgroundImage: 'url("demo2.jpg")' , backgroundRepeat:'no-repeat', backgroundSize: 'cover',  backgroundPosition: 'center' }}>
             <Logout />
-            <div className="container">
+            <div className="container" >
                 <div className="row mt-5 pt-5">
                     <div className="search">
                         <div className="search--tabs">
@@ -61,7 +81,7 @@ function Search() {
                                 <option value="">-</option>
                                 {airportList.map((flight) => (
                                     <option
-                                        key={flight.flightNumber}
+                                        key={flight.flightNumber}           //unique
                                         value={flight.takeoff}
                                     >
                                         {flight.takeoff}
@@ -89,14 +109,34 @@ function Search() {
                                 ))}
                             </select>
 
+                            <label> Departure Date : </label>
+                            <select
+                                className="form-control"
+                                name="Departure-Date "
+                                value={departureDate || ""}
+                                onChange={(e) => {
+                                    setDepartureDate(e.target.value);
+                                }}
+                            >
+                                <option value="">-</option>
+                                {airportList.map((flight) => (
+                                    <option
+                                        key={flight.flightNumber}
+                                        value={flight.departureDate}
+                                    >
+                                        {flight.departureDate}
+                                    </option>
+                                ))}
+                            </select>
+
                             <button className="btn" onClick={searchFlights}>Search</button>
                         </div>
                     </div>
 
 
                     {flights.length !== 0 ? (
-                        <div className="col-lg-8 mb-5 grid-margin">
-                            <div className="card h-100 flight-table" style={{ color: "black" }}>
+                        <div className="col-lg-8 mb-5 grid-margin" style={{ margin: "auto"  }}>
+                            <div className="card h-100 flight-table" style={{ color: "black"  }}>
                                 <h4 className="card-header">
                                     Available Flights {takeoff} - {landing}
                                 </h4>
@@ -112,7 +152,7 @@ function Search() {
                                             color: "black"
                                         }}
                                     >
-                                        <thead>
+                                        <thead>     
                                             <tr>
                                                 <th>FlightNumber</th>
                                                 <th>Takeoff</th>
@@ -155,7 +195,10 @@ function Search() {
                     ) : null}
                 </div>
             </div>
+            <ToastContainer />
         </div>
+
+        
     );
 }
 
