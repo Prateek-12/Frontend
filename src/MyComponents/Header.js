@@ -12,8 +12,10 @@ export default function Header(props) {
 
     if (logged) {
       setIsLoggedIn("logged if", true);
+      console.log("user login",isLoggedIn+"admin id is ",logged)
       console.log(isLoggedIn);
     } else if (loggedAdmin) {
+      console.log("admin login",isLoggedInAdmin+"admin id is ",loggedAdmin)
       setIsLoggedInAdmin(true);
     } else {
       setIsLoggedIn(false);
@@ -23,8 +25,12 @@ export default function Header(props) {
   function logoutHandle() {
     setIsLoggedIn(false);
     localStorage.removeItem("role");
+    localStorage.removeItem("admin");
+    setIsLoggedIn(false);
+    setIsLoggedInAdmin(false);
     console.log("logout");
   }
+  
   return (
     <>
       <nav className="navbar customNav navbar-expand-lg navbar-dark bg-dark">
@@ -45,6 +51,7 @@ export default function Header(props) {
           </button>
 
           {isLoggedInAdmin && (
+          <>
             <div
               className="collapse navbar-collapse justify-content-end"
               id="navbarSupportedContent"
@@ -60,7 +67,14 @@ export default function Header(props) {
                     Flights
                   </Link>
                 </li>
-                {/* <li className="nav-item">
+              </ul>
+            </div>
+            <div
+                class="collapse navbar-collapse justify-content-end"
+                id="navbarSupportedContent"
+              >
+                <ul class="navbar-nav ">
+                  <li className="nav-item">
                     <Link
                       className="nav-link active"
                       aria-current="page"
@@ -69,39 +83,18 @@ export default function Header(props) {
                     >
                       Logout
                     </Link>
-                  </li> */}
-              </ul>
-            </div>
-          )}
-          {isLoggedIn ? (
+                  </li>
+                </ul>
+              </div>
+            </>
+          )
+          }
+          {isLoggedIn && !isLoggedInAdmin && (
             <div
               className="collapse navbar-collapse justify-content-end"
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                {/* <li className="nav-item">
-                  <Link className="nav-link " aria-current="page" to="/">
-                    Home
-                  </Link>
-                </li> */}
-                {/* <li className="nav-item">
-                  <Link
-                    className="nav-link "
-                    aria-current="page"
-                    to="/search"
-                  >
-                    Search
-                  </Link>
-                </li>  */}
-                {/* <li className="nav-item">
-                  <Link
-                    className="nav-link  "
-                    aria-current="page"
-                    to="/flights"
-                  >
-                    Flights
-                  </Link>
-                </li> */}
                 <li className="nav-item">
                   <Link
                     className="nav-link active "
@@ -116,11 +109,6 @@ export default function Header(props) {
                     Check In
                   </Link>
                 </li>
-                {/* <li className="nav-item">
-                  <Link className="nav-link" to="/about">
-                    About
-                  </Link>
-                </li> */}
               </ul>
               <div
                 class="collapse navbar-collapse justify-content-end"
@@ -140,7 +128,9 @@ export default function Header(props) {
                 </ul>
               </div>
             </div>
-          ) : (
+          )
+        } 
+          {!isLoggedIn && !isLoggedInAdmin && (
             <div
               className="collapse navbar-collapse justify-content-end"
               id="navbarSupportedContent"

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import UserService from "../Services/UserService"
 import '../App.css'
+import { useHistory } from "react-router-dom";
+
 
 export default class AdminLogin extends Component {  
   state = {
@@ -30,6 +32,8 @@ export default class AdminLogin extends Component {
         localStorage.removeItem("user");
         localStorage.setItem("admin", res.data.id);
         window.location.href = "/Bookings";
+        // this.history.push(`/Bookings`);
+
         // window.location.href = "/flights";
 
       }

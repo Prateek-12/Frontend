@@ -48,9 +48,9 @@ class ListBookingsComponent extends Component {
             <h2 className="mx-auto">Bookings List</h2>
           </div>
         </div>
-        <div className="row flight-table w-100vh">
+        <div className="row flight-table">
           <Table hover striped bordered
-            style={{ color: "black" }}
+            style={{ width:"100%"}}
           >
             <thead>
               <tr>
