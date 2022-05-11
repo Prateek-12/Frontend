@@ -4,15 +4,20 @@ import "../App.css";
 
 export default function Header(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
+  const [isLoggedInAdmin, setIsLoggedInAdmin] = useState(false);
+
   useEffect(() => {
     let logged = localStorage.getItem("role");
+    let loggedAdmin = localStorage.getItem("admin");
+
     if (logged) {
       setIsLoggedIn("logged if", true);
       console.log(isLoggedIn);
+    } else if (loggedAdmin) {
+      setIsLoggedInAdmin(true);
     } else {
       setIsLoggedIn(false);
-      console.log("logged else", isLoggedIn);
+      setIsLoggedInAdmin(false);
     }
   });
   function logoutHandle() {
@@ -39,6 +44,35 @@ export default function Header(props) {
             <span className="navbar-toggler-icon"></span>
           </button>
 
+          {isLoggedInAdmin && (
+            <div
+              className="collapse navbar-collapse justify-content-end"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link className="nav-link active " aria-current="page" to="/bookings">
+                    Bookings
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link active " aria-current="page" to="/flights">
+                    Flights
+                  </Link>
+                </li>
+                {/* <li className="nav-item">
+                    <Link
+                      className="nav-link active"
+                      aria-current="page"
+                      onClick={logoutHandle}
+                      to="/login"
+                    >
+                      Logout
+                    </Link>
+                  </li> */}
+              </ul>
+            </div>
+          )}
           {isLoggedIn ? (
             <div
               className="collapse navbar-collapse justify-content-end"

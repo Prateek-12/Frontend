@@ -28,8 +28,9 @@ export default class AdminLogin extends Component {
       console.log("res", res);
       if (res.data) {
         localStorage.removeItem("user");
-        localStorage.setItem("role", res.data.id);
-        window.location.href = "/flights";
+        localStorage.setItem("admin", res.data.id);
+        window.location.href = "/Bookings";
+        // window.location.href = "/flights";
 
       }
       // if (res.data.role === null) {

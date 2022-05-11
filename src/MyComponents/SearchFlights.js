@@ -29,7 +29,7 @@ function FlightSearch() {
     let search = {
       takeoff,
       landing,
-      // departureDate,
+       departureDate,
     };
     const flightResp = await Service.getByTakeoffAndLandingAndDepartureDate(
       search

@@ -25,26 +25,11 @@ function CheckInDetails() {
     });
   }, []);
 
-  //  const onSubmit=()=>{
-  //    console.log("firstName",firstName);
-  //    console.log("lastName",lastName);
-  //    setObj({
-  //     firstName:firstName,
-  //     lastName:lastName,
-  //     seatNumber:seatNumber,
-  //     date:date,
-  //     flightno:flightno,
-  //     flightDate:date,
-  //   })
-  //    console.log(setObj);
-  //    Service.checkIn(obj).then((res)=>{
-  //      console.log(res);
-  //    })
-  //  }
+  
 
   const onSubmit = async () => {
     let time = new Date(date).toLocaleTimeString();
-    if(seatNumber ==='' || date === ''){
+    if( date === ''){
       toast.error("Fill the required fields",{autoClose: 2000});
       return;
     }
@@ -129,13 +114,14 @@ function CheckInDetails() {
                       </label>
                       <input
                         type="text"
-                        required
+                        disabled
+                        // required
                         placeholder="Enter Seat Number"
                         id="typePasswordX-2"
                         className="form-control form-control-lg"
                         name="seatNumber"
-                        // value={}
-                        onChange={(e) => setSeatNumber(e.target.value)}
+                         value={'A-16'}
+                        // onChange={(e) => setSeatNumber(e.target.value)}
                       />
                     </div>
 

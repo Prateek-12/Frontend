@@ -68,9 +68,15 @@ function CheckIn() {
                     <span>{passenger.passengerList[0].age}</span>
                   </div>
                   <div>
-                    <span>Booking Fare: </span>
+                    <span>Booking Fare: Done : </span>
                     <span>{passenger.bookingAmount}</span>
                   </div>
+                  {/* <div>
+                    <span>Booking Fare: Done : </span>
+                    <span>{passenger.bookingAmount}</span>
+                  </div> */}
+
+
                 </div>
               </div>
             </div>

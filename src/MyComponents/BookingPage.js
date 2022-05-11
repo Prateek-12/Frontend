@@ -8,6 +8,10 @@ import { withRouter,Redirect } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import "../App.css"
+
+
+
+
 const BookingPage = () => {
   const [passengers, setPassengers] = useState([]);
   const [addingPassenger, setAddingPassenger] = useState(false);
@@ -33,7 +37,7 @@ const BookingPage = () => {
       
       window.location.href = "http://localhost:9004/";                 //paytm pe redirect kr va rha hh
 
-    },2000)
+    },1000)
   };
   const deletePassenger = (index) => {
     let allPassengers = [...passengers];

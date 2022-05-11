@@ -51,7 +51,7 @@ function CheckInConfirmation() {
                     </div>
                     <div>
                     <span>Seat Number: </span>
-                    <span>{passenger.seatNumber}</span>
+                    <span>{'A-16'}</span>
                     </div>
                     <div>
                     <span>CheckIn Date: </span>

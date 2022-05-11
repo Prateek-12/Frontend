@@ -12,6 +12,7 @@ import checkInConfirmation from './MyComponents/checkInConfirmation';
 import SubmitForm from './MyComponents/SubmitForm';
 
 
+
 import Showcase from './MyComponents/Showcase';
 
 import Destinations from './MyComponents/Destinations';
@@ -44,7 +45,7 @@ function App() {
             <Destinations/>
             {/* <Home /> */}
           </Route>
-           {/* <Route path="/bookings" component={ListBookingsComponent} /> */}
+           <Route path="/bookings" component={ListBookingsComponent} />
            <Route path="/booking" component={BookingPage} />
           <Route path="/flights" component={ListFlightsComponent} />
           <Route path="/add-flight" component={CreateFlightComponent} />       
@@ -72,6 +73,7 @@ function App() {
             <AdminLogin/>
           </Route>
 
+          
 
 
         </Switch>

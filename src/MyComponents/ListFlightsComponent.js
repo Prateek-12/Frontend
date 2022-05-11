@@ -74,8 +74,9 @@ class ListFlightsComponent extends Component {
                 <th>Layover</th>
                 <th>Duration</th>
                 <th>Departure Date</th>
-                <th>Departure Time</th>
-                <th>Arrival Time</th>
+                 {/* <th>Departure Time</th> 
+                 <th>Arrival Time</th>  */}
+                <th>Arrival Date</th>
                 <th>Flight Fare</th>
                 <th>Seats</th>
                 <th>Actions</th>
@@ -92,8 +93,9 @@ class ListFlightsComponent extends Component {
                   <td>{flight.layover.toString()}</td>
                   <td>{flight.duration}</td>
                   <td>{flight.departureDate}</td>
-                  <td>{flight.departureTime}</td>
-                  <td>{flight.arrivalTime}</td>
+                   {/* <td>{flight.departureTime}</td>
+                  <td>{flight.arrivalTime}</td>  */}
+                  <td>{flight.arrivalDate}</td>
                   <td>{flight.flightFare}</td>
                   <td>{flight.totalSeats}</td>
                   <td>

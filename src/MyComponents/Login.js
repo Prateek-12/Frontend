@@ -30,9 +30,10 @@ export default class Login extends Component {
       if (res.data) {
        // localStorage.removeItem("user");
         localStorage.setItem("role", res.data.id);        //jo bhi response.data.id ke andr aari hh use role me store krde
-        toast.success("Logged In Successfuly!",{autoClose: 2000});
+        toast.success("Logged In Successfully!",{autoClose: 2000});
         setTimeout(()=>{
-          window.location.href = "/booking";  //booking pe redirect kr va rha hh
+          window.location.href = "/booking";  //booking pe redirect krva dia
+      
 
         },2000)         
 

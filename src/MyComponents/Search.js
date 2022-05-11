@@ -79,9 +79,9 @@ function Search() {
                                 }}
                             >
                                 <option value="">-</option>    
-                                {airportList.map((flight) => (          // backend se jo data aaya {aaray of object} use loop krke print krre hh options ki form me   
+                                {airportList.map((flight) => (               // backend se jo data aaya {aaray of object} use loop krke print krre hh options ki form me   
                                     <option
-                                        key={flight.flightNumber}           //unique
+                                        key={flight.flightNumber}                      //unique
                                         value={flight.takeoff}
                                     >
                                         {flight.takeoff}           {/* option me jo value show hogi */}
@@ -156,11 +156,11 @@ function Search() {
                                             <tr>
                                                 <th>FlightNumber</th>
                                                 <th>Takeoff</th>
-                                                <th>Departure Date</th>
-                                                <th>Departure Time</th>
+                                                <th>Departure Date and Time</th>
+                                                {/* <th>Departure Time</th> */}
                                                 <th>Landing</th>
-                                                <th>Arrival Date</th>
-                                                <th>Arrival Time</th>
+                                                <th>Arrival Date and Time</th>
+                                                {/* <th>Arrival Time</th> */}
                                                 <th>Flight Fare</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -171,10 +171,10 @@ function Search() {
                                                     <td>{flight.flightNumber}</td>
                                                     <td>{flight.takeoff}</td>
                                                     <td>{flight.departureDate}</td>
-                                                    <td>{flight.departureTime}</td>
+                                                    {/* <td>{flight.departureTime}</td> */}
                                                     <td>{flight.landing}</td>
                                                     <td>{flight.arrivalDate}</td>
-                                                    <td>{flight.arrivalTime}</td>
+                                                    {/* <td>{flight.arrivalTime}</td> */}
                                                     <td>{flight.flightFare}</td>
                                                     <td>
                                                         {" "}
